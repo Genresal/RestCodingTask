@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestCT.BusinessLogic.Services.Interfaces;
 using RestCT.Shared.Models;
+using RestCT.Shared.Requests;
 
 namespace REST_API_Coding_Task.Controllers
 {
@@ -34,9 +35,9 @@ namespace REST_API_Coding_Task.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] FilteringParameters parameters)
         {
-            return Ok(await _service.GetItems());
+            return Ok(await _service.GetItems(parameters));
         }
 
         [HttpDelete]

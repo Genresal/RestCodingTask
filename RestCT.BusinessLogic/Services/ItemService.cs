@@ -1,6 +1,7 @@
 ﻿using RestCT.BusinessLogic.Services.Interfaces;
 using RestCT.DataAccess.Repositories.Interfaces;
 using RestCT.Shared.Models;
+using RestCT.Shared.Requests;
 
 namespace RestCT.BusinessLogic.Services
 {
@@ -22,9 +23,9 @@ namespace RestCT.BusinessLogic.Services
             await _itemRepository.DeleteItem(id);
         }
 
-        public async Task<IEnumerable<Item>> GetItems()
+        public async Task<IEnumerable<Item>> GetItems(FilteringParameters parameters)
         {
-            return await _itemRepository.GetItems();
+            return await _itemRepository.GetItems(parameters);
         }
 
         public async Task UpdateItem(Item request)

@@ -14,12 +14,14 @@ namespace SPWB.Planning.Dependencies
         private const string defaultConnectionString = "Server=(local);Database=RestCtDb;Trusted_Connection=True;Encrypt=False;";
         public static void AddServices(this IServiceCollection services)
         {
+            services.AddTransient<IAuxiliaryService, AuxiliaryService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IItemService, ItemService>();
         }
 
         public static void AddRepositories(this IServiceCollection services)
         {
+            services.AddTransient<IAuxiliaryRepository, AuxiliaryRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IItemRepository, ItemRepository>();
         }

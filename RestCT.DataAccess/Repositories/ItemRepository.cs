@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestCT.DataAccess.Repositories.Interfaces;
 using RestCT.Shared.Models;
+using RestCT.Shared.Requests;
 
 namespace RestCT.DataAccess.Repositories
 {
@@ -26,10 +27,13 @@ namespace RestCT.DataAccess.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Item>> GetItems()
+        public async Task<IEnumerable<Item>> GetItems(FilteringParameters parameters)
         {
-            var rr = await _dbContext.Items.ToListAsync();
-            return rr;
+            var start = parameters.PageSize * parameters.PageNumber;
+            return await _dbContext.Items
+                .Skip(start)
+                .Take(parameters.PageSize)
+                .ToListAsync();
         }
 
         public async Task UpdateItem(Item request)
