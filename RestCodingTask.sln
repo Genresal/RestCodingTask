@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestCT.API", "REST API Coding Task\RestCT.API.csproj", "{44487120-CD0F-4B7E-9CFE-33E1C69E4838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestCT.API", "REST API Coding Task\RestCT.API.csproj", "{44487120-CD0F-4B7E-9CFE-33E1C69E4838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestCT.Shared", "RestCT.Shared\RestCT.Shared.csproj", "{08C01141-BD48-4960-8140-E64E8B69AAC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestCT.Shared", "RestCT.Shared\RestCT.Shared.csproj", "{08C01141-BD48-4960-8140-E64E8B69AAC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestCT.BusinessLogic", "RestCT.BusinessLogic\RestCT.BusinessLogic.csproj", "{3FE80885-F693-432F-B167-F860AB9116D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestCT.BusinessLogic", "RestCT.BusinessLogic\RestCT.BusinessLogic.csproj", "{3FE80885-F693-432F-B167-F860AB9116D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestCT.Dependencies", "RestCT.Dependencies\RestCT.Dependencies.csproj", "{B9124188-EDA7-4E1D-9D40-279FBAA0A342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestCT.Dependencies", "RestCT.Dependencies\RestCT.Dependencies.csproj", "{B9124188-EDA7-4E1D-9D40-279FBAA0A342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestCT.DataAccess", "RestCT.DataAccess\RestCT.DataAccess.csproj", "{DA4B299C-83B2-416E-AE4A-A05F65DC8BF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestCT.DataAccess", "RestCT.DataAccess\RestCT.DataAccess.csproj", "{DA4B299C-83B2-416E-AE4A-A05F65DC8BF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestCtClient", "RestCtClient\RestCtClient.csproj", "{1FA2C0E0-F0BB-4B89-A79F-E82B4F28AB05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestCtConsoleClient", "RestCtConsoleClient\RestCtConsoleClient.csproj", "{86BB3773-B17D-4308-9A19-3F5052636687}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{DA4B299C-83B2-416E-AE4A-A05F65DC8BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA4B299C-83B2-416E-AE4A-A05F65DC8BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA4B299C-83B2-416E-AE4A-A05F65DC8BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA2C0E0-F0BB-4B89-A79F-E82B4F28AB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FA2C0E0-F0BB-4B89-A79F-E82B4F28AB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA2C0E0-F0BB-4B89-A79F-E82B4F28AB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FA2C0E0-F0BB-4B89-A79F-E82B4F28AB05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BB3773-B17D-4308-9A19-3F5052636687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BB3773-B17D-4308-9A19-3F5052636687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BB3773-B17D-4308-9A19-3F5052636687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BB3773-B17D-4308-9A19-3F5052636687}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

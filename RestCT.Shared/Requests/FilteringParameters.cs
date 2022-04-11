@@ -3,9 +3,20 @@
     public class FilteringParameters
     {
         const int maxPageSize = 50;
-        private int _pageSize = 2;
+        private int _pageSize = 10;
+        private int _pageNumber = 1;
 
-        public int PageNumber { get; set; }
+        public int PageNumber
+        {
+            get
+            {
+                return _pageNumber - 1;
+            }
+            set
+            {
+                _pageNumber = (value <= 0) ? 1 : value;
+            }
+        }
         public int PageSize
         {
             get
@@ -17,5 +28,6 @@
                 _pageSize = (value > maxPageSize) ? maxPageSize : value;
             }
         }
+        public int? CategoryId { get; set; } = null;
     }
 }

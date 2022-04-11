@@ -31,6 +31,7 @@ namespace RestCT.DataAccess.Repositories
         {
             var start = parameters.PageSize * parameters.PageNumber;
             return await _dbContext.Items
+                .Where(x => x.CategoryId == parameters.CategoryId || parameters.CategoryId == null)
                 .Skip(start)
                 .Take(parameters.PageSize)
                 .ToListAsync();
