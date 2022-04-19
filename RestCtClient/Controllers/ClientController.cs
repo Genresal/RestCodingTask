@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestCT.Shared.Models;
 using RestCT.Shared.Requests;
+using RestCT.Shared.Responses;
 using RestCtClient.Interfaces;
 using RestEase;
 
@@ -15,6 +16,7 @@ namespace RestCtClient.Controllers
 
         public ClientController(ILogger<ClientController> logger)
         {
+            //_publishService = new RestClient(new HttpClient{BaseAddress = new Uri("http://localhost:7159/")}).For<IPublishService>();
             _publishService = RestClient.For<IPublishService>("http://localhost:7159");
             _logger = logger;
         }
@@ -26,7 +28,7 @@ namespace RestCtClient.Controllers
         }
 
         [HttpGet("categories")]
-        public async Task<IEnumerable<Category>> GetCategories()
+        public async Task<IEnumerable<GetCategoryResponse>> GetCategories()
         {
             return await _publishService.GetCategories();
         }

@@ -1,39 +1,30 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Mime;
 using RestCT.Shared.Models;
+using RestCT.Shared.Responses;
 
 
 using (var client = new HttpClient())
+{
+    var request = new HttpRequestMessage(new HttpMethod("GET"), "https://localhost:7159/api/categories");
+
+    //request.Headers.TryAddWithoutValidation("X-Auth-Token", "LocalTocken");
+    //request.Headers.TryAddWithoutValidation("X-User-Id", "LocalID");
+
+    HttpResponseMessage response = await client.SendAsync(request);
+
+    if (response.IsSuccessStatusCode)
+    {
+        var readTask = response.Content.ReadAsAsync<GetCategoryResponse[]>();
+        readTask.Wait();
+
+        var categories = readTask.Result;
+
+        foreach (var category in categories)
         {
-    //client.BaseAddress = new Uri("http://localhost:44352/api/");
-    //HTTP GET
-    //client.DefaultRequestHeaders.ConnectionClose = true;
-    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    //new MediaTypeWithQualityHeaderValue("application/json")
-    //client.DefaultRequestHeaders.Add("Content-Type", "application/json; charset=utf-8");
-    var responseTask = client.GetAsync("http://localhost:7159/api/categories");
-    responseTask.Wait();
-    var result = responseTask.Result;
-
-    if (result.IsSuccessStatusCode)
-            {
-                var readTask = result.Content.ReadAsAsync<Item[]>();
-                readTask.Wait();
-
-                var students = readTask.Result;
-
-                foreach (var student in students)
-                {
-                    Console.WriteLine(student.Name);
-                }
-            }
+            Console.WriteLine($"{category.Id} {category.Name}");
         }
-        Console.ReadLine();
+    }
+
+    Console.ReadLine();
+}

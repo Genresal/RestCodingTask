@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RestCT.Shared.Models;
+﻿using RestCT.Shared.Models;
 using RestCT.Shared.Requests;
+using RestCT.Shared.Responses;
 using RestEase;
 
 namespace RestCtClient.Interfaces
 {
     [SerializationMethods(Query = QuerySerializationMethod.Serialized, Body = BodySerializationMethod.Serialized)]
+    [Header("User-Agent", "RestEase")]
     public interface IPublishService
     {
         [AllowAnyStatusCode]
-        [Get("api/items")]
-        Task <IEnumerable<Item>> GetItems([Query] FilteringParameters parameters);
+        [Get("http://localhost:7159/api/items")]
+        Task<IEnumerable<Item>> GetItems([Query] FilteringParameters parameters);
 
         [AllowAnyStatusCode]
-        [Header("Accept", "application/json")]
-        [Get("api/categories")]
-        Task<IEnumerable<Category>> GetCategories();
+        [Get("http://localhost:7159/api/categories")]
+        Task<IEnumerable<GetCategoryResponse>> GetCategories();
     }
 }

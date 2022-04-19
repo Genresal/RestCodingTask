@@ -11,7 +11,8 @@ namespace RestCT.DataAccess.Repositories
         public BaseRepository(RestCtDbContext dbContext, DbSet<T> dbSet)
         {
             _dbContext = dbContext;
-            _dbSet = dbSet;
+            //_dbSet = dbSet;
+            _dbSet = dbContext.Set<T>();//!!!
         }
         public async Task Create(T request)
         {
