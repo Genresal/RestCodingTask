@@ -16,10 +16,10 @@ using (var client = new HttpClient())
     //client.BaseAddress = new Uri("http://localhost:44352/api/");
     //HTTP GET
     //client.DefaultRequestHeaders.ConnectionClose = true;
-    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json; charset=utf-8"));
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
     //new MediaTypeWithQualityHeaderValue("application/json")
     //client.DefaultRequestHeaders.Add("Content-Type", "application/json; charset=utf-8");
-    var responseTask = client.GetAsync("http://localhost:44352/api/categories");
+    var responseTask = client.GetAsync("http://localhost:7159/api/categories");
     responseTask.Wait();
     var result = responseTask.Result;
 

@@ -1,12 +1,15 @@
 ﻿using RestCT.Shared.Models;
+using RestCT.Shared.Requests;
+using RestCT.Shared.Responses;
 
 namespace RestCT.BusinessLogic.Services.Interfaces
 {
     public interface ICategoryService
     {
-        Task CreateCategory(Category request);
-        Task<IEnumerable<Category>> GetCategories();
-        Task UpdateCategory(Category request);
+        Task<GetCategoryResponse> CreateCategory(CreateCategoryRequest request);
+        Task<IEnumerable<GetCategoryResponse>> GetCategories();
+        Task<GetCategoryResponse> GetCategoryById(int id);
+        Task UpdateCategory(CreateCategoryRequest request);
         Task DeleteCategory(int id);
     }
 }

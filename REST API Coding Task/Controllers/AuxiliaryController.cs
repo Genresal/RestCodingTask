@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using RestCT.BusinessLogic.Services.Interfaces;
-using RestCT.Shared.Models;
 
 namespace REST_API_Coding_Task.Controllers
 {
@@ -21,6 +20,7 @@ namespace REST_API_Coding_Task.Controllers
         public async Task<IActionResult> Create()
         {
             await _service.AddDefaultData();
+            _logger.LogInformation("Added default data to Database");
 
             return NoContent();
         }
@@ -29,6 +29,7 @@ namespace REST_API_Coding_Task.Controllers
         public IActionResult Clear()
         {
             _service.Clear();
+            _logger.LogWarning("Database cleared");
 
             return NoContent();
         }

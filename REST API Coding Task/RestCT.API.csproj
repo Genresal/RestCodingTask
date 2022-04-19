@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <!--<Nullable>enable</Nullable> - проверка на null--> 
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>REST_API_Coding_Task</RootNamespace>
   </PropertyGroup>

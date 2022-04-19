@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using RestCT.BusinessLogic.Services.Interfaces;
-using RestCT.Shared.Models;
 using RestCT.Shared.Requests;
 
 namespace REST_API_Coding_Task.Controllers
@@ -19,19 +18,21 @@ namespace REST_API_Coding_Task.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Item request)
+        public async Task<IActionResult> Create(CreateItemRequest request)
         {
-            await _service.CreateItem(request);
+            var createdItem = await _service.CreateItem(request);
+            _logger.LogInformation("Created new category: ", createdItem);
 
-            return NoContent();
+            return Ok(createdItem);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(Item request)
+        public async Task<IActionResult> Update(CreateItemRequest request)
         {
             await _service.UpdateItem(request);
+            _logger.LogInformation("Updated category: ", request);
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
@@ -40,12 +41,19 @@ namespace REST_API_Coding_Task.Controllers
             return Ok(await _service.GetItems(parameters));
         }
 
-        [HttpDelete]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            return Ok(await _service.GetItemById(id));
+        }
+
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             await _service.DeleteItem(id);
+            _logger.LogInformation("Deleted category with id: " + id.ToString());
 
-            return NoContent();
+            return Ok();
         }
     }
 }

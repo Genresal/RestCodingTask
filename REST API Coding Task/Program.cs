@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RestCT.DataAccess;
 using Serilog;
 using Serilog.Events;
@@ -7,14 +7,17 @@ using SPWB.Planning.Dependencies;
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
 
+// логгирование всех запросов!!!
 // Add services to the container.
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(configuration, "Serilog")
     .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
     .MinimumLevel.Override("System", LogEventLevel.Warning)
     .CreateLogger();
+
 builder.Services.AddControllers();
 
+builder.Services.AddApiAutoMapperProfiles();
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddDatabaseConfigs(builder.Configuration);

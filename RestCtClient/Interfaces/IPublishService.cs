@@ -17,6 +17,7 @@ namespace RestCtClient.Interfaces
         Task <IEnumerable<Item>> GetItems([Query] FilteringParameters parameters);
 
         [AllowAnyStatusCode]
+        [Header("Accept", "application/json")]
         [Get("api/categories")]
         Task<IEnumerable<Category>> GetCategories();
     }
